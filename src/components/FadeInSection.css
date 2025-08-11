@@ -1,10 +1,32 @@
-.fadeInSection {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+/* --- Default state for all animations --- */
+.fadeInUp, .fadeInLeft, .fadeInRight, .zoomIn {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.fadeInSection.isVisible {
-  opacity: 1;
-  transform: translateY(0);
+/* --- Initial positions for each animation type --- */
+.fadeInUp { 
+    transform: translateY(20px); 
+}
+.fadeInLeft { 
+    transform: translateX(50px); /* Starts from the right */
+}
+.fadeInRight { 
+    transform: translateX(-50px); /* Starts from the left */
+}
+.zoomIn { 
+    transform: scale(0.9); 
+}
+
+/* 
+--- Visible state for all animations --- 
+'transform: none' resets the transform to its default state 
+(e.g., translateY(0), translateX(0), scale(1)) 
+*/
+.fadeInUp.isVisible,
+.fadeInLeft.isVisible,
+.fadeInRight.isVisible,
+.zoomIn.isVisible {
+    opacity: 1;
+    transform: none;
 }

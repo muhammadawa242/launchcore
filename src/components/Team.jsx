@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../styles/LandingPage.module.css';
+import FadeInSection from './FadeInSection'; // Import the animation component
 
 const teamMembers = [
     {
@@ -23,15 +24,20 @@ const Team = () => {
     return (
         <section id="team" className={styles.team}>
             <div className={styles.container}>
-                <h2>Meet Our Experts</h2>
-                <p className={styles.sectionSubtitle}>Our team of certified professionals is the backbone of our firm, bringing a wealth of expertise and dedication to every client interaction.</p>
+                <FadeInSection>
+                    <h2>Meet Our Experts</h2>
+                    <p className={styles.sectionSubtitle}>Our team of certified professionals is the backbone of our firm, bringing a wealth of expertise and dedication to every client interaction.</p>
+                </FadeInSection>
                 <div className={styles.teamGrid}>
+                    {/* Map through team members and wrap each one in FadeInSection with a staggered delay */}
                     {teamMembers.map((member, index) => (
-                        <div key={index} className={styles.teamMember}>
-                            <img src={member.imgSrc} alt={member.name} />
-                            <h3>{member.name}</h3>
-                            <p>{member.role}</p>
-                        </div>
+                        <FadeInSection key={index} delay={index * 150}>
+                            <div className={styles.teamMember}>
+                                <img src={member.imgSrc} alt={member.name} />
+                                <h3>{member.name}</h3>
+                                <p>{member.role}</p>
+                            </div>
+                        </FadeInSection>
                     ))}
                 </div>
             </div>
