@@ -1,0 +1,37 @@
+/* --- 1. Global Settings & "LaunchCORE" Color Palette --- */
+:root {
+    --color-primary: #B9375D;
+    --color-secondary: #D25D5D;
+    --color-text: #333333;
+    --color-text-light: #6b6b6b;
+    --color-background: #EEEEEE;
+    --color-subtle-bg: #E7D3D3;
+    --color-white: #FFFFFF;
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* Make sure to add the Google Font link in your main public/index.html file */
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+*/
