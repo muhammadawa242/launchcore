@@ -1,21 +1,29 @@
+// src/components/Header.jsx
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom'; // Import Link and NavLink
 import styles from '../styles/LandingPage.module.css';
-import logo from '../assets/launch.png'; // Make sure your logo is in src/assets/
+import logo from '../assets/launch.png';
 
 const Header = () => {
     return (
         <header className={styles.mainHeader}>
             <div className={styles.container}>
-                <a href="#home" className={styles.logoContainer}>
+                {/* Use Link for the logo to go to the homepage */}
+                <Link to="/" className={styles.logoContainer}>
                     <img src={logo} alt="LaunchCORE Logo" />
-                </a>
+                </Link>
                 <nav className={styles.mainNav}>
                     <ul>
-                        <li><a href="#home" className={styles.active}>Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#expertise">Services</a></li>
-                        <li><a href="#team">Team</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        {/* 
+                          Use NavLink for navigation links. 
+                          It automatically adds an 'active' class to the current page's link,
+                          which matches your existing CSS perfectly.
+                        */}
+                        <li><NavLink to="/" end>Home</NavLink></li>
+                        <li><NavLink to="/#about">About</NavLink></li>
+                        <li><NavLink to="/#expertise">Services</NavLink></li>
+                        <li><NavLink to="/#team">Team</NavLink></li>
+                        <li><NavLink to="/#contact">Contact</NavLink></li>
                     </ul>
                 </nav>
             </div>

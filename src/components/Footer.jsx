@@ -1,4 +1,6 @@
+// src/components/Footer.jsx
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link
 import styles from '../styles/LandingPage.module.css';
 import logo from '../assets/launch.png';
 import { Linkedin, Twitter, Instagram } from 'react-feather';
@@ -15,23 +17,27 @@ const Footer = () => {
                     <div className={styles.footerLinks}>
                         <h4>Quick Links</h4>
                         <ul>
-                            <li><a href="#about">About Us</a></li>
-                            <li><a href="#expertise">Services</a></li>
-                            <li><a href="#team">Our Team</a></li>
-                            <li><a href="#privacy">Privacy Policy</a></li>
+                            {/* Use Link for hash links on the homepage */}
+                            <li><Link to="/#about">About Us</Link></li>
+                            <li><Link to="/#expertise">Services</Link></li>
+                            <li><Link to="/#team">Our Team</Link></li>
+                            {/* Assuming you will create a privacy page at /privacy */}
+                            <li><Link to="/privacy">Privacy Policy</Link></li>
                         </ul>
                     </div>
                     <div className={styles.footerLinks}>
                         <h4>Services</h4>
                         <ul>
-                            <li><a href="#expertise">Corporate Tax</a></li>
-                            <li><a href="#expertise">VAT Services</a></li>
-                            <li><a href="#expertise">Accounting</a></li>
-                            <li><a href="#expertise">Business Setup</a></li>
+                            {/* Use Link to go to the actual service pages */}
+                            <li><Link to="/services/corporate-tax">Corporate Tax</Link></li>
+                            <li><Link to="/services/vat-services">VAT Services</Link></li>
+                            <li><Link to="/services/accounting">Accounting</Link></li>
+                            <li><Link to="/services/business-setup">Business Setup</Link></li>
                         </ul>
                     </div>
                     <div className={styles.footerSocial}>
                         <h4>Follow Us</h4>
+                        {/* External links remain as 'a' tags */}
                         <ul>
                             <li><a href="https://linkedin.com" aria-label="LinkedIn"><Linkedin /></a></li>
                             <li><a href="https://twitter.com" aria-label="Twitter"><Twitter /></a></li>

@@ -1,0 +1,150 @@
+/* src/styles/ProcessStepper.module.css */
+
+.processContainer {
+    display: grid;
+    /* On larger screens, create 4 columns. On smaller, it will wrap automatically. */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 3rem;
+    position: relative;
+}
+
+.stepWrapper {
+    /* This wrapper is used for the fade-in animation */
+    position: relative;
+}
+
+.step {
+    text-align: center;
+    position: relative;
+    padding-top: 80px; /* Space for the icon and line */
+}
+
+.stepIconContainer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.stepIcon {
+    width: 70px;
+    height: 70px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    border: 5px solid var(--color-background);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.stepWrapper:hover .stepIcon {
+    transform: scale(1.1);
+    background-color: var(--color-secondary);
+}
+
+.stepContent {
+    background-color: var(--color-white);
+    padding: 30px 20px 20px 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    height: 100%; /* Make all cards equal height in a row */
+}
+
+.stepTitle {
+    margin-bottom: 0.75rem;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+}
+
+.stepDescription {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+/* --- The Connecting Line --- */
+/* This pseudo-element creates the horizontal line that connects the steps */
+.stepWrapper::before {
+    content: '';
+    position: absolute;
+    top: 35px; /* Vertically center with the icon */
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-subtle-bg);
+    z-index: 1;
+}
+
+/* --- Line Adjustments for First and Last Child --- */
+
+/* Remove the line segment extending to the left of the first step */
+.stepWrapper:first-child::before {
+    left: 50%;
+    width: 50%;
+}
+
+/* Remove the line segment extending to the right of the last step */
+.stepWrapper:last-child::before {
+    left: 0;
+    width: 50%;
+}
+
+/* --- Responsive Adjustments for Mobile --- */
+@media (max-width: 980px) { /* Adjust breakpoint where it switches to 2 columns */
+    .stepWrapper:nth-child(2)::before {
+        left: 0;
+        width: 50%;
+    }
+    .stepWrapper:nth-child(3)::before {
+        left: 50%;
+        width: 50%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* On mobile, stack them and use a vertical line */
+    .processContainer {
+        grid-template-columns: 1fr;
+        gap: 0; /* No horizontal gap */
+    }
+
+    .stepWrapper {
+        padding-bottom: 30px; /* Space between steps */
+    }
+
+    .step {
+        text-align: left;
+        padding-top: 0;
+        padding-left: 100px; /* Space for the icon */
+    }
+    
+    .stepIconContainer {
+        left: 0;
+        transform: none;
+    }
+
+    /* This pseudo-element now creates the VERTICAL line */
+    .stepWrapper::before {
+        top: 35px; /* Start below the icon */
+        left: 35px; /* Horizontally center with icon */
+        width: 2px;
+        height: 100%; /* Full height of the wrapper */
+    }
+
+    /* Remove the line from the very last step */
+    .stepWrapper:last-child::before {
+        display: none;
+    }
+
+    .stepContent {
+        text-align: left;
+    }
+}

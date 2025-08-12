@@ -1,0 +1,79 @@
+/* src/styles/ProcessStepperVertical.module.css */
+
+.stepperContainer {
+    margin-top: 3rem;
+}
+
+.stepperList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    /* The main vertical line */
+    border-left: 3px solid var(--color-subtle-bg);
+}
+
+.stepItem {
+    position: relative;
+    /* Space for the icon and line */
+    padding: 0 0 50px 70px; 
+}
+
+/* Remove bottom padding from the last item */
+.stepItem:last-child {
+    padding-bottom: 0;
+}
+
+.stepMarker {
+    position: absolute;
+    left: 0;
+    top: 5px; /* Align with the top of the text */
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.stepIcon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--color-primary);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.stepItem:hover .stepIcon {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: scale(1.1);
+}
+
+.stepContent {
+    background-color: var(--color-white);
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--color-subtle-bg);
+    transition: border-color 0.3s ease;
+}
+
+.stepItem:hover .stepContent {
+    border-color: var(--color-primary);
+}
+
+.stepTitle {
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.stepDescription {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin: 0;
+}

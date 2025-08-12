@@ -66,9 +66,13 @@ section {
 .mainNav ul { list-style: none; display: flex; }
 .mainNav ul li { margin-left: 35px; }
 .mainNav ul li a { text-decoration: none; color: var(--color-text); font-weight: 400; transition: color 0.3s ease; position: relative; padding-bottom: 5px; }
-.mainNav ul li a:hover, .mainNav ul li a.active { color: var(--color-primary); }
+.mainNav ul li a:hover, .mainNav ul li a.active { 
+    color: var(--color-primary); 
+}
 .mainNav ul li a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%; transform: translateX(-50%); background-color: var(--color-primary); transition: width 0.3s ease; }
-.mainNav ul li a:hover::after, .mainNav ul li a.active::after { width: 100%; }
+.mainNav ul li a:hover::after, .mainNav ul li a.active::after { 
+    width: 100%; 
+}
 
 /* --- 3. Hero Section (Full-Screen, No Parallax) --- */
 .hero {
@@ -282,4 +286,11 @@ section {
     .footerGrid { grid-template-columns: 1fr; text-align: center; }
     .footerAbout { display: flex; flex-direction: column; align-items: center; }
     .contactInfo, .contactForm { padding: 30px; }
+}
+
+/* Add this to LandingPage.module.css */
+.expertiseLink {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Ensures the link takes up the full space of the grid item */
 }

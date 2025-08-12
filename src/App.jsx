@@ -1,66 +1,57 @@
-// src/App.jsx
+// src/App.jsx - FINAL WORKING VERSION
 
-import React, { useState, useEffect } from 'react'; // <-- Import useState and useEffect
+import React from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { ParallaxProvider } from 'react-scroll-parallax';
-import { useInView } from 'react-intersection-observer'; // <-- Import useInView
 
-// Import Components
+// Import Layout Components
 import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Expertise from './components/Expertise';
-import StartupPackage from './components/StartupPackage';
-import WhyUs from './components/WhyUs';
-import TrackRecord from './components/TrackRecord';
-import Testimonials from './components/Testimonials';
-import Team from './components/Team';
-import Contact from './components/Contact';
-import CTA from './components/CTA';
 import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
+import ScrollToAnchor from './components/ScrollToAnchor';
+import ScrollToTop from './components/ScrollToTop'; // <-- IMPORT THE NEW COMPONENT
+
+// Import Page Components
+import HomePage from './pages/HomePage';
+import BusinessSetupPage from './pages/BusinessSetupPage';
+import CorporateTaxPage from './pages/CorporateTaxPage';
+import AccountingPage from './pages/AccountingPage';
+import BusinessAdvisoryPage from './pages/BusinessAdvisoryPage';
+import VatServicesPage from './pages/VatServicesPage';
+import CompliancePage from './pages/CompliancePage';
+
 
 function App() {
-  // --- START OF NEW CODE ---
-  // State to control the visibility of the floating buttons
-  const [actionsVisible, setActionsVisible] = useState(false);
-
-  // This hook will give us a ref and tell us when it's in view
-  const { ref: mainContentRef, inView } = useInView({
-    triggerOnce: true, // Only trigger once
-    threshold: 0.01,   // Trigger as soon as the element peeks into view
-  });
-
-  // When the 'inView' status changes to true, update our state
-  useEffect(() => {
-    if (inView) {
-      setActionsVisible(true);
-    }
-  }, [inView]);
-  // --- END OF NEW CODE ---
-
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   return (
     <ParallaxProvider>
-      <Header />
-      <Hero /> 
+      <ScrollToAnchor /> {/* Handles scrolling to #sections */}
+      <ScrollToTop />    {/* Handles scrolling to top on new page loads */}
       
-      {/* We attach the ref to the <main> element. When this comes into view, the animation triggers. */}
-      <main ref={mainContentRef}> 
-        <About />
-        <Expertise />
-        <StartupPackage />
-        <WhyUs />
-        <TrackRecord />
-        <Testimonials />
-        <Team />
-        <Contact />
-      </main>
+      <Header />
 
-      <CTA />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        
+        {/* Service Pages */}
+        <Route path="/services/business-setup" element={<BusinessSetupPage />} />
+        <Route path="/services/corporate-tax" element={<CorporateTaxPage />} />
+        <Route path="/services/accounting" element={<AccountingPage />} />
+        <Route path="/services/business-advisory" element={<BusinessAdvisoryPage />} />
+        <Route path="/services/vat-services" element={<VatServicesPage />} />
+        <Route path="/services/compliance" element={<CompliancePage />} />
+      </Routes>
+      
       <Footer />
+      
+      {/* 
+        This logic is now safe to re-introduce because the underlying
+        rendering and scrolling issues are fixed.
+      */}
+      <FloatingActions pageType={isHomePage ? 'home' : 'service'} />
 
-      {/* Pass the visibility state as a prop to the component */}
-      <FloatingActions areVisible={actionsVisible} />
     </ParallaxProvider>
   );
 }
