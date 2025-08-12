@@ -1,3 +1,5 @@
+// src/App.jsx
+
 import React from 'react';
 import { ParallaxProvider } from 'react-scroll-parallax';
 
@@ -14,6 +16,7 @@ import Team from './components/Team';
 import Contact from './components/Contact';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import FloatingActions from './components/FloatingActions'; // <-- Import the new component
 
 function App() {
   return (
@@ -39,6 +42,9 @@ function App() {
 
       <CTA />
       <Footer />
+
+      {/* This renders the floating buttons on your page */}
+      <FloatingActions />
     </ParallaxProvider>
   );
 }
