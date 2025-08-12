@@ -1,7 +1,8 @@
 // src/App.jsx
 
-import React from 'react';
+import React, { useState, useEffect } from 'react'; // <-- Import useState and useEffect
 import { ParallaxProvider } from 'react-scroll-parallax';
+import { useInView } from 'react-intersection-observer'; // <-- Import useInView
 
 // Import Components
 import Header from './components/Header';
@@ -16,20 +17,35 @@ import Team from './components/Team';
 import Contact from './components/Contact';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
-import FloatingActions from './components/FloatingActions'; // <-- Import the new component
+import FloatingActions from './components/FloatingActions';
 
 function App() {
+  // --- START OF NEW CODE ---
+  // State to control the visibility of the floating buttons
+  const [actionsVisible, setActionsVisible] = useState(false);
+
+  // This hook will give us a ref and tell us when it's in view
+  const { ref: mainContentRef, inView } = useInView({
+    triggerOnce: true, // Only trigger once
+    threshold: 0.01,   // Trigger as soon as the element peeks into view
+  });
+
+  // When the 'inView' status changes to true, update our state
+  useEffect(() => {
+    if (inView) {
+      setActionsVisible(true);
+    }
+  }, [inView]);
+  // --- END OF NEW CODE ---
+
+
   return (
     <ParallaxProvider>
       <Header />
-      {/* 
-        Hero is now a sibling to <main>, not a child.
-        This allows it to be a full-screen background layer.
-      */}
       <Hero /> 
       
-      <main>
-        {/* The rest of your page content starts here */}
+      {/* We attach the ref to the <main> element. When this comes into view, the animation triggers. */}
+      <main ref={mainContentRef}> 
         <About />
         <Expertise />
         <StartupPackage />
@@ -43,8 +59,8 @@ function App() {
       <CTA />
       <Footer />
 
-      {/* This renders the floating buttons on your page */}
-      <FloatingActions />
+      {/* Pass the visibility state as a prop to the component */}
+      <FloatingActions areVisible={actionsVisible} />
     </ParallaxProvider>
   );
 }

@@ -2,13 +2,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { Phone, ArrowUp } from 'react-feather';
-import './FloatingActions.css'; // Styles for this component
+import './FloatingActions.css'; 
 import WhatsAppIcon from '../assets/whatsapp-icon.svg';
 
-const FloatingActions = () => {
+// Accept the `areVisible` prop from App.jsx
+const FloatingActions = ({ areVisible }) => {
     const [isTopButtonVisible, setIsTopButtonVisible] = useState(false);
 
-    // Shows the "Back to Top" button after scrolling down 300px
     const toggleVisibility = () => {
         if (window.scrollY > 300) {
             setIsTopButtonVisible(true);
@@ -24,17 +24,17 @@ const FloatingActions = () => {
         };
     }, []);
 
-    // **IMPORTANT**: Replace with your actual contact details
     const whatsappNumber = '971501234567'; 
     const officePhoneNumber = '+97141234567';
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hello! I'm interested in your services.`;
 
     return (
-        // Use a React Fragment to return multiple elements
         <>
-            {/* Container for the buttons on the left side */}
-            <div className="floating-actions-container">
-                {/* WhatsApp Button */}
+            {/* 
+              Add a conditional class here. 
+              The container is either hidden or visible based on the prop. 
+            */}
+            <div className={`floating-actions-container ${areVisible ? 'is-visible' : ''}`}>
                 <a 
                     href={whatsappLink} 
                     className="floating-action-btn whatsapp-btn" 
@@ -45,7 +45,6 @@ const FloatingActions = () => {
                     <img src={WhatsAppIcon} alt="WhatsApp" />
                 </a>
 
-                {/* Contact Button (Opens the dialer) */}
                 <a 
                     href={`tel:${officePhoneNumber}`}
                     className="floating-action-btn contact-btn"
@@ -55,7 +54,7 @@ const FloatingActions = () => {
                 </a>
             </div>
             
-            {/* Standalone Back to Top Button (Visible on Scroll) */}
+            {/* The Back to Top button's logic remains unchanged */}
             {isTopButtonVisible && (
                 <a 
                     href="#home" 
