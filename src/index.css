@@ -2,6 +2,17 @@
 :root {
     --color-primary: #B9375D;
     --color-secondary: #D25D5D;
+    --color-primary-dark: #A03150; /* --- NEW: Darker shade for gradients --- */
+
+    /* --- ENHANCED: Accent color for CTAs --- */
+    --color-accent: #009688;      /* The base teal */
+    --color-accent-light: #00bfa5; /* A slightly lighter, vibrant teal for gradients */
+    --color-accent-hover: #00796B; /* A darker shade for hover states */
+
+    /* --- NEW: Reusable Gradients for a premium feel --- */
+    --gradient-accent: linear-gradient(45deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+    --gradient-primary: radial-gradient(circle, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+
     --color-text: #333333;
     --color-text-light: #6b6b6b;
     --color-background: #EEEEEE;

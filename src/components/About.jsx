@@ -11,7 +11,7 @@ const About = () => {
           {/* Text slides in from the left */}
           <FadeInSection animationType="fadeInRight">
             <div className={styles.aboutText}>
-              <h2 className={styles.h2Left}>Your Strategic Partner in Financial Excellence</h2>
+              <h2 className={styles.h2Left}>A Partnership Built on Trust & Expertise</h2>
               <p>At <strong>LaunchCORE</strong>, we are more than just accountants; we are your dedicated partners. We blend deep industry knowledge with a proactive approach to provide clear, actionable advice, allowing you to focus on what you do best: growing your business.</p>
               <a href="#expertise" className={styles.btn}>Explore Our Expertise</a>
             </div>

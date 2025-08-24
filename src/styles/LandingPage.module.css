@@ -33,37 +33,37 @@ section {
 }
 .btn {
     display: inline-block;
-    background-color: var(--color-primary);
+    background: var(--gradient-accent); /* --- UPDATED: Use gradient --- */
     color: var(--color-white);
     padding: 14px 35px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(185, 55, 93, 0.3);
-    border: 2px solid transparent;
+    box-shadow: 0 4px 20px rgba(0, 150, 136, 0.35); /* Slightly enhanced shadow */
+    border: none; /* Removed border for a cleaner look */
 }
 .btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(185, 55, 93, 0.4);
-    background-color: #A03150;
+    transform: translateY(-5px) scale(1.03); /* --- UPDATED: Added scale for more feedback --- */
+    box-shadow: 0 8px 30px rgba(0, 150, 136, 0.45);
+    filter: brightness(1.1); /* --- UPDATED: A more vibrant hover effect --- */
 }
 
 /* --- 2. Header & Navigation (NEW & IMPROVED) --- */
 .mainHeader {
-    background-color: transparent; /* Start transparent */
+    /* --- UPDATED: Now uses a subtle gradient for readability on start --- */
+    background: linear-gradient(to bottom, rgba(25, 25, 25, 0.6) 0%, rgba(25, 25, 25, 0) 100%);
     padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
     width: 100%;
-    transition: background-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+    transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
 }
 
 .mainHeader.scrolled {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: var(--color-white); /* --- FIXED: Now fully opaque solid white --- */
+    /* --- REMOVED: backdrop-filter is no longer needed for an opaque background --- */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     border-bottom: 1px solid var(--color-subtle-bg);
 }
@@ -130,9 +130,9 @@ section {
 
 /* --- Header CTA Button --- */
 .navCta {
-    background-color: transparent;
-    color: var(--color-primary) !important; /* Important to override other 'a' styles */
-    border: 2px solid var(--color-primary);
+    background: transparent;
+    color: var(--color-accent) !important; /* Important to override other 'a' styles */
+    border: 2px solid var(--color-accent);
     padding: 8px 22px !important; /* Use important to override generic padding */
     border-radius: 50px;
     font-weight: 600;
@@ -141,12 +141,37 @@ section {
 }
 
 .navCta:hover {
-    background-color: var(--color-primary);
+    background: var(--gradient-accent); /* --- UPDATED: Fill with gradient on hover --- */
     color: var(--color-white) !important;
     transform: translateY(-3px) scale(1.05);
-    box-shadow: var(--shadow);
+    box-shadow: 0 4px 15px rgba(0, 150, 136, 0.3);
+    border-color: transparent; /* --- UPDATED: Hide border on hover for seamless look --- */
 }
 
+
+/* --- NEW: Rules for the transparent (un-scrolled) header state --- */
+.mainHeader:not(.scrolled) .mainNav ul li a {
+    color: var(--color-white);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.mainHeader:not(.scrolled) .mainNav ul li a:not(.navCta):hover {
+    color: var(--color-white);
+    transform: translateY(-2px); /* Keep the hover interaction */
+}
+
+.mainHeader:not(.scrolled) .mainNav ul li a:not(.navCta)::after {
+    background-color: var(--color-white); /* Make underline white */
+}
+
+.mainHeader:not(.scrolled) .navCta {
+    color: var(--color-white) !important;
+    border-color: var(--color-white);
+}
+
+.mainHeader:not(.scrolled) .mobileMenuToggle {
+    color: var(--color-white);
+}
 
 /* --- Mobile Navigation --- */
 .mobileMenuToggle {
@@ -207,12 +232,18 @@ section {
 
 .mobileNavCta {
     display: block;
-    background: var(--color-primary);
+    background: var(--gradient-accent); /* --- UPDATED: Use gradient --- */
     color: var(--color-white) !important;
     padding: 15px 30px;
     border-radius: 50px;
     margin-top: 30px;
     font-size: 1.2rem !important;
+    transition: all 0.3s ease;
+}
+
+.mobileNavCta:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
 }
 
 /* Add this inside the media queries section */
@@ -352,8 +383,8 @@ section {
 .startupPackageCard p { color: var(--color-text-light); max-width: 500px; margin: 0 auto 1.5rem auto; }
 .startupPackageCard .price { font-size: 3.5rem; font-weight: 700; color: var(--color-primary); margin: 1rem 0; }
 .startupPackageCard .price span { font-size: 1rem; font-weight: 400; opacity: 0.7; display: block; }
-.startupPackageCard .btn { background-color: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); box-shadow: none; }
-.startupPackageCard .btn:hover { background-color: var(--color-primary); color: var(--color-white); box-shadow: 0 8px 25px rgba(185, 55, 93, 0.4); }
+.startupPackageCard .btn { background: transparent; color: var(--color-accent); border: 2px solid var(--color-accent); box-shadow: none; }
+.startupPackageCard .btn:hover { background: var(--gradient-accent); color: var(--color-white); border-color: transparent; box-shadow: 0 8px 25px rgba(0, 150, 136, 0.4); filter: brightness(1); }
 
 /* --- 7. Why Us --- */
 .whyUs { background-color: var(--color-white); }
@@ -404,11 +435,11 @@ section {
 .contactForm .btn { width: 100%; border: none; }
 
 /* --- 12. CTA --- */
-.ctaSection { background-color: var(--color-primary); color: var(--color-white); padding: 60px 0; text-align: center; }
+.ctaSection { background: var(--gradient-primary); /* --- UPDATED: Use gradient --- */ color: var(--color-white); padding: 60px 0; text-align: center; }
 .ctaSection h2 { color: var(--color-white); margin-bottom: 1.5rem; }
-.ctaSection .btn { background-color: var(--color-white); color: var(--color-primary); box-shadow: none; padding: 16px 40px; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; }
+.ctaSection .btn { background: var(--color-white); color: var(--color-accent); box-shadow: none; padding: 16px 40px; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; }
 .ctaSection .btn .btnIcon { transition: transform 0.3s ease; }
-.ctaSection .btn:hover { background-color: #f5f5f5; color: var(--color-primary); transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); }
+.ctaSection .btn:hover { background: #f5f5f5; color: var(--color-accent-hover); transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); filter: brightness(1); }
 .ctaSection .btn:hover .btnIcon { transform: translateX(5px); }
 
 /* --- 13. Footer --- */
