@@ -439,9 +439,36 @@ section {
 .footerGrid ul a { color: inherit; text-decoration: none; display: inline-block; transition: all 0.3s ease; }
 .footerGrid .footerLinks a:hover { opacity: 1; color: var(--color-secondary); transform: translateX(5px); }
 .footerSocial ul { display: flex; gap: 15px; }
-.footerSocial a { background: rgba(255, 255, 255, 0.1); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
-.footerSocial a:hover { background: var(--color-primary); color: var(--color-white); transform: scale(1.1); }
-.footerBottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.8rem; opacity: 0.6; }
+
+.footerSocial a {
+    background: #333333;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 20%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    /* display: grid; */
+    display: block;             /* remove extra line-height */
+    align-items: center;
+    justify-content: center;
+    place-items: center;
+}
+.footerSocial a:hover {
+    background: var(--color-primary);
+    transform: scale(1.1);
+    border-color: var(--color-primary);
+}
+.footerSocial a svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-white);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+.footerSocial a:hover svg {
+    opacity: 1;
+}
 
 /* --- Media Queries --- */
 @media (max-width: 900px) {
