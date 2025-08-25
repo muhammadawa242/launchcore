@@ -77,7 +77,7 @@ section {
 
 .logoContainer img {
     height: 50px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, filter 0.4s ease; /* Added filter to transition */
 }
 .logoContainer:hover img {
     transform: scale(1.05);
@@ -151,6 +151,12 @@ section {
     color: var(--color-white);
     text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
+
+/* --- NEW: Make the logo white and add a glow when header is transparent --- */
+.mainHeader:not(.scrolled) .logoContainer img {
+    filter: brightness(0) invert(1) drop-shadow(0 1px 3px rgba(0,0,0,0.5));
+}
+
 
 .mainHeader:not(.scrolled) .mainNav ul li a:not(.navCta):hover {
     color: var(--color-white);
