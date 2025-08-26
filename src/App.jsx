@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
 import ScrollToAnchor from './components/ScrollToAnchor';
 import ScrollToTop from './components/ScrollToTop';
-import DimensionalLoader from './components/DimensionalLoader'; // <-- IMPORT THE ADAPTED LOADER
+import DimensionalLoader from './components/DimensionalLoader'; // The themed loader
 
 // Import Page Components
 import HomePage from './pages/HomePage';
@@ -25,27 +25,44 @@ import CompliancePage from './pages/CompliancePage';
 function App() {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
-
+  
+  // --- START: SMART LOADING LOGIC ---
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time for the animation to complete
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3800); // Animation runs for 4s, so this is a good duration
+    // This function will be called only when all assets (images, scripts, etc.) are loaded
+    const handleLoad = () => {
+      // Use a short timeout to prevent the loader from disappearing too abruptly
+      // and to ensure the final browser render pass is complete.
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 500); // A brief half-second buffer for a smooth transition
+    };
 
-    return () => clearTimeout(timer);
-  }, []);
+    // Check if the document is already fully loaded (e.g., on a very fast connection)
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      // If not loaded yet, add an event listener for the 'load' event
+      window.addEventListener('load', handleLoad);
+      
+      // Cleanup: Remove the event listener when the component unmounts to prevent memory leaks
+      return () => window.removeEventListener('load', handleLoad);
+    }
+  }, []); // The empty dependency array ensures this effect runs only once on mount
 
-  // Show the loader while isLoading is true
+  // While isLoading is true, show the loader and nothing else.
   if (isLoading) {
     return <DimensionalLoader />;
   }
+  // --- END: SMART LOADING LOGIC ---
 
+
+  // Once loading is complete, render the full application.
   return (
     <ParallaxProvider>
-      <ScrollToAnchor />
-      <ScrollToTop />
+      <ScrollToAnchor /> {/* Handles scrolling to #sections */}
+      <ScrollToTop />    {/* Handles scrolling to top on new page loads */}
       
       <Header />
 
