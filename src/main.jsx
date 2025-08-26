@@ -6,7 +6,7 @@ import App from './App.jsx';
 import './index.css'; // Keep CSS for basic styling
 
 // The base path from your vite.config.js
-const VITE_BASE_PATH = '/launchcore/';
+const VITE_BASE_PATH = '/';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
