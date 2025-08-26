@@ -1,6 +1,6 @@
 // src/App.jsx - FINAL WORKING VERSION
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { ParallaxProvider } from 'react-scroll-parallax';
 
@@ -9,7 +9,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
 import ScrollToAnchor from './components/ScrollToAnchor';
-import ScrollToTop from './components/ScrollToTop'; // <-- IMPORT THE NEW COMPONENT
+import ScrollToTop from './components/ScrollToTop';
+import DimensionalLoader from './components/DimensionalLoader'; // <-- IMPORT THE ADAPTED LOADER
 
 // Import Page Components
 import HomePage from './pages/HomePage';
@@ -25,10 +26,26 @@ function App() {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time for the animation to complete
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3800); // Animation runs for 4s, so this is a good duration
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Show the loader while isLoading is true
+  if (isLoading) {
+    return <DimensionalLoader />;
+  }
+
   return (
     <ParallaxProvider>
-      <ScrollToAnchor /> {/* Handles scrolling to #sections */}
-      <ScrollToTop />    {/* Handles scrolling to top on new page loads */}
+      <ScrollToAnchor />
+      <ScrollToTop />
       
       <Header />
 
@@ -46,10 +63,6 @@ function App() {
       
       <Footer />
       
-      {/* 
-        This logic is now safe to re-introduce because the underlying
-        rendering and scrolling issues are fixed.
-      */}
       <FloatingActions pageType={isHomePage ? 'home' : 'service'} />
 
     </ParallaxProvider>
