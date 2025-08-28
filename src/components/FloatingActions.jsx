@@ -51,8 +51,8 @@ const FloatingActions = ({ pageType }) => {
 
     }, [pageType]); // Rerun this effect if the pageType changes
 
-    const whatsappNumber = '971501234567'; 
-    const officePhoneNumber = '+97141234567';
+    const whatsappNumber = '971502906344'; 
+    const officePhoneNumber = '+971502906344';
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hello! I'm interested in your services.`;
 
     return (

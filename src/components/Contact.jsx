@@ -28,11 +28,11 @@ const Contact = () => {
                                 <h3>Get In Touch</h3>
                                 <div className={styles.contactInfoItem}>
                                     <i><Mail /></i>
-                                    <p>info@launchcore.com</p>
+                                    <p>info@launchcore.ae</p>
                                 </div>
                                 <div className={styles.contactInfoItem}>
                                     <i><Phone /></i>
-                                    <p>+971 4 123 4567</p>
+                                    <p>+971 50 290 6344</p>
                                 </div>
                                 <div className={styles.contactInfoItem}>
                                     <i><MapPin /></i>
