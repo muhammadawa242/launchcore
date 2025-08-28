@@ -2,13 +2,16 @@ import React from 'react';
 import './DimensionalLoader.css';
 
 // We'll use one of the hero images for a professional and consistent look.
-// Make sure 'building.jpg' is in your /public folder.
+// Make sure 'desert.jpg' is in your /public folder.
 const BASE_URL = import.meta.env.BASE_URL;
 const bgImageUrl = `${BASE_URL}desert.jpg`;
 
-const DimensionalLoader = () => {
+const DimensionalLoader = ({ isExiting }) => {
   return (
-    <div className="loader-body" style={{ backgroundImage: `url(${bgImageUrl})` }}>
+    <div 
+      className={`loader-body ${isExiting ? 'exiting' : ''}`} 
+      style={{ backgroundImage: `url(${bgImageUrl})` }}
+    >
       {/* This new div creates the dark overlay, identical to the hero section */}
       <div className="loader-overlay"></div>
       

@@ -28,32 +28,44 @@ function App() {
   
   // --- START: SMART LOADING LOGIC ---
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoaderExiting, setIsLoaderExiting] = useState(false);
+
+  // Define constants for timings to keep them in one place
+  const MIN_LOADER_TIME = 3000; // ms - The loader animation will run for this long
+  const LOADER_EXIT_TIME = 500; // ms - The fade-out animation duration
 
   useEffect(() => {
-    // This function will be called only when all assets (images, scripts, etc.) are loaded
-    const handleLoad = () => {
-      // Use a short timeout to prevent the loader from disappearing too abruptly
-      // and to ensure the final browser render pass is complete.
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 500); // A brief half-second buffer for a smooth transition
-    };
+    // A promise that resolves when all initial assets are loaded
+    const contentLoadedPromise = new Promise(resolve => {
+        if (document.readyState === 'complete') {
+            resolve();
+        } else {
+            // Use { once: true } to automatically remove the listener after it fires
+            window.addEventListener('load', () => resolve(), { once: true });
+        }
+    });
 
-    // Check if the document is already fully loaded (e.g., on a very fast connection)
-    if (document.readyState === 'complete') {
-      handleLoad();
-    } else {
-      // If not loaded yet, add an event listener for the 'load' event
-      window.addEventListener('load', handleLoad);
-      
-      // Cleanup: Remove the event listener when the component unmounts to prevent memory leaks
-      return () => window.removeEventListener('load', handleLoad);
-    }
+    // A promise that resolves after the minimum loader display time has passed
+    const minTimePromise = new Promise(resolve => {
+        setTimeout(resolve, MIN_LOADER_TIME);
+    });
+
+    // Wait for both the minimum time to pass AND the content to be fully loaded
+    Promise.all([contentLoadedPromise, minTimePromise]).then(() => {
+        // Step 1: Trigger the loader's exit animation
+        setIsLoaderExiting(true);
+
+        // Step 2: Wait for the exit animation to complete, then unmount the loader
+        setTimeout(() => {
+            setIsLoading(false);
+        }, LOADER_EXIT_TIME);
+    });
+    
   }, []); // The empty dependency array ensures this effect runs only once on mount
 
-  // While isLoading is true, show the loader and nothing else.
+  // While isLoading is true, show the loader. Pass the exiting state as a prop.
   if (isLoading) {
-    return <DimensionalLoader />;
+    return <DimensionalLoader isExiting={isLoaderExiting} />;
   }
   // --- END: SMART LOADING LOGIC ---
 
