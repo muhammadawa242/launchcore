@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import styles from '../styles/LandingPage.module.css';
-import logo from '../assets/launch.png';
+import logo from '../assets/logo.png';
 import { Menu, X } from 'react-feather'; // Import icons for mobile menu
 
 const Header = () => {

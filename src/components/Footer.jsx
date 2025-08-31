@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link
 import styles from '../styles/LandingPage.module.css';
-import logo from '../assets/launch.png';
+import logo from '../assets/logo.png';
 import { Linkedin, Twitter, Instagram } from 'react-feather';
 
 const Footer = () => {
