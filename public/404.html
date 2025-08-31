@@ -1,23 +1,31 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF--8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo-cut.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LaunchCORE | Business Setup & Financial Services in UAE</title>
-    
-    <!-- Google Fonts for 'Poppins' -->
+    <title>LaunchCore Consulting</title>
+
+    <!-- Google Fonts Link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- === PRELOAD CRITICAL ASSETS === -->
+    <!-- Preload the first hero background image with high priority -->
+    <!-- IMPORTANT: Make sure these paths match the files in your /public folder -->
+    <link rel="preload" as="image" href="/museum.jpg"> 
+    
+    <!-- Preload other hero images with lower priority -->
+    <link rel="preload" as="image" href="/desert.jpg" fetchpriority="low">
+    <link rel="preload" as="image" href="/building.jpg" fetchpriority="low">
+    <link rel="preload" as="image" href="/building2.jpg" fetchpriority="low">
+    <link rel="preload" as="image" href="/museum-night.jpg" fetchpriority="low">
+    <link rel="preload" as="image" href="/museum-night2.jpg" fetchpriority="low">
+    <link rel="preload" as="image" href="/museum.jpg" fetchpriority="low">
+    <!-- ================================ -->
 
-    <!-- 
-      START: Single Page App (SPA) Redirect Script for GitHub Pages.
-      This script checks if a redirect is needed and uses the History API to
-      update the URL without a full page reload. This allows React Router
-      to handle the route.
-      Source: https://github.com/rafgraph/spa-github-pages
-    -->
+    <!-- START: Single Page App (SPA) Redirect Script -->
     <script type="text/javascript">
       (function(l) {
         if (l.search[1] === '/' ) {
@@ -30,8 +38,6 @@
         }
       }(window.location))
     </script>
-    <!-- END: SPA Redirect Script -->
-
   </head>
   <body>
     <div id="root"></div>
