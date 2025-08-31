@@ -24,7 +24,20 @@
     <link rel="preload" as="image" href="/museum-night2.jpg" fetchpriority="low">
     <link rel="preload" as="image" href="/museum.jpg" fetchpriority="low">
     <!-- ================================ -->
-
+    <script type="text/javascript">
+        (function (l) {
+            if (l.search[1] === "/") {
+            var decoded = l.search
+                .slice(1)
+                .split("&")
+                .map(function (s) {
+                return s.replace(/~and~/g, "&");
+                })
+                .join("?");
+            window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+            }
+        })(window.location);
+    </script>
   </head>
   <body>
     <div id="root"></div>
