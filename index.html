@@ -35,20 +35,14 @@
     <!-- Google Fonts Link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="preconnect" href="https://images.pexels.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>html{font-display:swap}</style>
     
     <!-- === PRELOAD CRITICAL ASSETS === -->
-    <!-- Preload the first hero background image with high priority -->
-    <!-- IMPORTANT: Make sure these paths match the files in your /public folder -->
-    <link rel="preload" as="image" href="/museum.jpg"> 
-    
-    <!-- Preload other hero images with lower priority -->
-    <link rel="preload" as="image" href="/desert.jpg" fetchpriority="low">
-    <link rel="preload" as="image" href="/building.jpg" fetchpriority="low">
-    <link rel="preload" as="image" href="/building2.jpg" fetchpriority="low">
-    <link rel="preload" as="image" href="/museum-night.jpg" fetchpriority="low">
-    <link rel="preload" as="image" href="/museum-night2.jpg" fetchpriority="low">
-    <link rel="preload" as="image" href="/museum.jpg" fetchpriority="low">
+    <!-- Preload only the first hero background image with high priority -->
+    <link rel="preload" as="image" href="/museum.jpg" fetchpriority="high"> 
 
     <!-- Dynamic SEO helpers: set canonical and og:url to the current URL; inject JSON-LD -->
     <script>

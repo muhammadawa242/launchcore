@@ -11,11 +11,12 @@ const DimensionalLoader = ({ isExiting }) => {
     <div 
       className={`loader-body ${isExiting ? 'exiting' : ''}`} 
       style={{ backgroundImage: `url(${bgImageUrl})` }}
+      role="status" aria-live="polite" aria-label="Loading"
     >
       {/* This new div creates the dark overlay, identical to the hero section */}
       <div className="loader-overlay"></div>
       
-      <div className="dimensional-progress">
+      <div className="dimensional-progress" aria-hidden="true">
         <div className="dimensional-track">
           <div className="dimensional-fill"></div>
         </div>
@@ -25,7 +26,7 @@ const DimensionalLoader = ({ isExiting }) => {
           <div className="fragment" id="frag2"></div>
           <div className="fragment" id="frag3"></div>
         </div>
-        <div className="glitch-label">Initializing...</div>
+        <div className="glitch-label">Loading...</div>
       </div>
     </div>
   );

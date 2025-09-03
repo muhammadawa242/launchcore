@@ -20,7 +20,7 @@ const About = () => {
           <FadeInSection animationType="fadeInLeft" delay={200}>
             <div className={styles.aboutImage}>
               <Parallax speed={-10}>
-                  <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800" alt="Team collaborating in a modern office" />
+                  <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800" alt="Team collaborating in a modern office" loading="lazy" decoding="async"/>
               </Parallax>
             </div>
           </FadeInSection>

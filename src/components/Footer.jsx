@@ -11,7 +11,7 @@ const Footer = () => {
             <div className={styles.container}>
                 <div className={styles.footerGrid}>
                     <div className={styles.footerAbout}>
-                        <img src={logo} alt="LaunchCORE Logo" className={styles.footerLogo} />
+                        <img src={logo} alt="LaunchCORE Logo" className={styles.footerLogo} loading="lazy" decoding="async" />
                         <p>Establish, Evolve, Excel. We are your trusted partners in navigating the complexities of business finance.</p>
                     </div>
                     <div className={styles.footerLinks}>

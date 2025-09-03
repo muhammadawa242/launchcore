@@ -18,7 +18,7 @@ const services = [
 const ExpertiseCard = ({ icon, title, text, img }) => (
     <div className={styles.expertiseCard}>
         <div className={styles.expertiseCardImage}>
-            <img src={img} alt={`${title} illustration`} />
+            <img src={img} alt={`${title} illustration`} loading="lazy" decoding="async" sizes="(max-width: 768px) 50vw, 400px" />
         </div>
         <div className={styles.expertiseCardContent}>
             <div className={styles.expertiseCardHeader}>

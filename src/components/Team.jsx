@@ -33,7 +33,7 @@ const Team = () => {
                     {teamMembers.map((member, index) => (
                         <FadeInSection key={index} delay={index * 150}>
                             <div className={styles.teamMember}>
-                                <img src={member.imgSrc} alt={member.name} />
+                                <img src={member.imgSrc} alt={member.name} loading="lazy" decoding="async" width="300" height="300" />
                                 <h3>{member.name}</h3>
                                 <p>{member.role}</p>
                             </div>

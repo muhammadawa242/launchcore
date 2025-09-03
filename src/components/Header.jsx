@@ -42,7 +42,7 @@ const Header = () => {
             {/* The container inside handles the alignment */}
             <div className={styles.headerContainer}>
                 <Link to="/" className={styles.logoContainer} onClick={closeMenu}>
-                    <img src={logo} alt="LaunchCORE Logo" />
+                    <img src={logo} alt="LaunchCORE Logo" fetchpriority="high" />
                 </Link>
 
                 {/* Desktop Navigation */}

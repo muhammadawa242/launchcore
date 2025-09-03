@@ -21,6 +21,7 @@
   background-size: cover;
   background-position: center;
   animation: ken-burns-zoom-out 10s ease-out forwards; /* Match hero animation */
+  pointer-events: none; /* Do not block interactions under loader */
 }
 
 /* --- NEW: Exit Animation --- */
@@ -38,6 +39,7 @@
   /* This is the exact overlay color from the hero section */
   background: rgba(67, 46, 84, 0.75); 
   z-index: 1;
+  pointer-events: none;
 }
 
 .dimensional-progress {
@@ -139,6 +141,19 @@
 @keyframes fadeOutLoader {
   from { opacity: 1; }
   to { opacity: 0; visibility: hidden; }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .loader-body {
+    animation: none;
+  }
+  .dimensional-fill,
+  .particle-burst,
+  .fragment,
+  .glitch-label {
+    animation: none !important;
+  }
 }
 
 /* --- Original Keyframes (with modifications) --- */

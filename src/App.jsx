@@ -31,8 +31,8 @@ function App() {
   const [isLoaderExiting, setIsLoaderExiting] = useState(false);
 
   // Define constants for timings to keep them in one place
-  const MIN_LOADER_TIME = 3000; // ms - The loader animation will run for this long
-  const LOADER_EXIT_TIME = 500; // ms - The fade-out animation duration
+  const MIN_LOADER_TIME = 500; // Short to avoid SEO/perf penalties
+  const LOADER_EXIT_TIME = 250; // Faster fade-out
 
   useEffect(() => {
     // A promise that resolves when all initial assets are loaded
