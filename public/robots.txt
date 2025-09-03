@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Respect crawl budgets and avoid indexing build artifacts
+Disallow: /node_modules/
+Disallow: /src/
+
+Sitemap: https://www.launchcore.ae/sitemap.xml

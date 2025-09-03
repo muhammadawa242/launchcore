@@ -4,7 +4,33 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo-cut.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LaunchCore Consulting</title>
+    <title>LaunchCore Consulting — Launch, Build, and Grow Faster</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="LaunchCore Consulting — Launch, Build, and Grow Faster" />
+    <meta name="description" content="LaunchCore helps founders and teams ship faster: strategy, product, design, engineering, and growth. From zero to launch with measurable outcomes." />
+    <meta name="theme-color" content="#0b1220" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical (set default, then ensure correctness via script) -->
+    <link rel="canonical" href="/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="LaunchCore Consulting — Launch, Build, and Grow Faster" />
+    <meta property="og:description" content="LaunchCore helps founders and teams ship faster: strategy, product, design, engineering, and growth." />
+    <meta property="og:image" content="/logo-cut.svg" />
+    <meta property="og:url" content="/" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="LaunchCore Consulting — Launch, Build, and Grow Faster" />
+    <meta name="twitter:description" content="LaunchCore helps founders and teams ship faster: strategy, product, design, engineering, and growth." />
+    <meta name="twitter:image" content="/logo-cut.svg" />
+
+    <!-- PWA / Manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="apple-touch-icon" href="/logo-cut.svg" />
 
     <!-- Google Fonts Link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +49,36 @@
     <link rel="preload" as="image" href="/museum-night.jpg" fetchpriority="low">
     <link rel="preload" as="image" href="/museum-night2.jpg" fetchpriority="low">
     <link rel="preload" as="image" href="/museum.jpg" fetchpriority="low">
+
+    <!-- Dynamic SEO helpers: set canonical and og:url to the current URL; inject JSON-LD -->
+    <script>
+      (function() {
+        try {
+          var currentUrl = window.location.origin + window.location.pathname;
+
+          var canonical = document.querySelector('link[rel="canonical"]');
+          if (canonical) canonical.setAttribute('href', currentUrl);
+
+          var ogUrl = document.querySelector('meta[property="og:url"]');
+          if (ogUrl) ogUrl.setAttribute('content', currentUrl);
+
+          var jsonLd = {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "LaunchCore Consulting",
+            "url": currentUrl,
+            "logo": "/logo-cut.svg",
+            "sameAs": []
+          };
+          var script = document.createElement('script');
+          script.type = 'application/ld+json';
+          script.text = JSON.stringify(jsonLd);
+          document.head.appendChild(script);
+        } catch (e) {
+          // no-op
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
