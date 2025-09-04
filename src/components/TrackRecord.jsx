@@ -4,10 +4,10 @@ import styles from '../styles/LandingPage.module.css';
 import FadeInSection from './FadeInSection';
 
 const figures = [
-  { end: 500, suffix: '+', label: 'Happy Clients' },
+  { end: 200, suffix: '+', label: 'Happy Clients' },
   { end: 99, suffix: '%', label: 'Compliance Rate' },
-  { end: 1200, suffix: '+', label: 'Filings Submitted' },
-  { end: 10, suffix: '+', label: 'Years of Experience' },
+  { end: 400, suffix: '+', label: 'Filings Submitted' },
+  { end: 2, suffix: '+', label: 'Years of Experience' },
 ];
 
 const TrackRecord = () => {

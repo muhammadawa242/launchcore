@@ -89,7 +89,7 @@ const Contact = () => {
                                 </div>
                                 <div className={styles.contactInfoItem}>
                                     <i><MapPin /></i>
-                                    <p>Sheikh Zayed Road,<br />Dubai, UAE</p>
+                                    <p>Umm e Suqeim Street, Al Barsha First<br />Dubai, UAE</p>
                                 </div>
                             </FadeInSection>
                             

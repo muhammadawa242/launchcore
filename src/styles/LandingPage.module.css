@@ -369,14 +369,86 @@ section {
 .expertiseCard p { font-size: 0.9rem; }
 
 /* --- 6. Startup Package --- */
-.startupPackageWrapper { background-color: var(--color-subtle-bg); padding: 80px 0; }
-.startupPackageCard { background: var(--color-white); text-align: center; padding: 50px 40px; border-radius: 12px; box-shadow: var(--shadow-lg); border: 2px solid var(--color-primary); max-width: 700px; margin: 0 auto; }
-.startupPackageCard h2 { color: var(--color-primary); }
-.startupPackageCard p { color: var(--color-text-light); max-width: 500px; margin: 0 auto 1.5rem auto; }
-.startupPackageCard .price { font-size: 3.5rem; font-weight: 700; color: var(--color-primary); margin: 1rem 0; }
-.startupPackageCard .price span { font-size: 1rem; font-weight: 400; opacity: 0.7; display: block; }
-.startupPackageCard .btn { background-color: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); box-shadow: none; }
-.startupPackageCard .btn:hover { background-color: var(--color-primary); color: var(--color-white); box-shadow: 0 8px 25px rgba(185, 55, 93, 0.4); }
+.startupPackageWrapper { 
+    background-color: var(--color-subtle-bg); 
+    padding: 80px 0; 
+}
+.startupPackageGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    align-items: stretch;
+    margin-top: 2rem;
+}
+.startupPackageCard {
+    background: var(--color-white);
+    text-align: center;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--color-subtle-bg);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+.startupPackageCard:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+.packageTitle {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+}
+.packageDescription {
+    color: var(--color-text-light);
+    min-height: 60px;
+    margin: 0.5rem auto 1.5rem auto;
+}
+.startupPackageCard .price {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 1rem 0;
+}
+.startupPackageCard .price span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    opacity: 0.7;
+    display: block;
+}
+.packageFeatures {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem auto;
+    text-align: left;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
+.packageFeatures li {
+    position: relative;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.featureIcon {
+    color: var(--color-secondary);
+    flex-shrink: 0;
+}
+.startupPackageCard .btn {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    box-shadow: none;
+    width: 100%;
+}
+.startupPackageCard .btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: 0 8px 25px rgba(185, 55, 93, 0.4);
+}
 
 /* --- 7. Why Us --- */
 .whyUs { background-color: var(--color-white); }
@@ -386,6 +458,48 @@ section {
 .benefitItem i { color: var(--color-primary); margin-bottom: 1rem; }
 .benefitItem h3 { margin-bottom: 0.5rem; }
 .benefitItem p { font-size: 0.9rem; }
+
+/* --- NEW: Founder's Note Styles --- */
+.founderNote {
+    margin-top: 4rem;
+    background: var(--color-background);
+    border-radius: 12px;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 40px;
+    align-items: center;
+    border-left: 5px solid var(--color-primary);
+}
+.founderImage {
+    width: 150px;
+    height: 150px;
+}
+.founderImage img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--color-white);
+    box-shadow: var(--shadow);
+}
+.founderContent blockquote {
+    border: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--color-text-light);
+}
+.founderContent cite {
+    font-style: normal;
+    font-weight: 400;
+    color: var(--color-text);
+}
+.founderContent cite strong {
+    font-weight: 600;
+    color: var(--color-primary);
+}
 
 /* --- 8. Track Record --- */
 .trackRecord { background-color: var(--color-subtle-bg); }
@@ -450,7 +564,7 @@ section {
     padding-top: 20px; 
     border-top: 1px solid rgba(255, 255, 255, 0.1); 
     font-size: 0.8rem; 
-    opacity: 0.6;  /* <- This is making it faded */
+    opacity: 0.6;
 }
 
 .footerSocial a {
@@ -461,8 +575,7 @@ section {
     padding: 20%;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
-    /* display: grid; */
-    display: block;             /* remove extra line-height */
+    display: block;
     align-items: center;
     justify-content: center;
     place-items: center;
@@ -500,6 +613,19 @@ section {
     .footerGrid { grid-template-columns: 1fr; text-align: center; }
     .footerAbout { display: flex; flex-direction: column; align-items: center; }
     .contactInfo, .contactForm { padding: 30px; }
+
+    /* NEW: Responsive styles for the founder's note */
+    .founderNote {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+        padding: 30px;
+    }
+    .founderImage {
+        margin: 0 auto;
+        width: 120px;
+        height: 120px;
+    }
 }
 
 /* Add this to LandingPage.module.css */
