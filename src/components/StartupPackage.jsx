@@ -23,7 +23,7 @@ const packages = [
         title: "Business Setup Starter Package",
         description: "The complete solution to launch your UAE venture quickly and correctly, from A to Z.",
         price: "AED 9,450",
-        priceTerm: "One-Time Fee",
+        priceTerm: "Starting From / Annually",
         features: [
             "Jurisdiction Advisory (Mainland vs. Freezone)",
             "Trade License & Legal Documentation",
