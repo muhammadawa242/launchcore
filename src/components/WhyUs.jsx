@@ -54,7 +54,7 @@ const WhyUs = () => {
                 <FadeInSection delay={300}>
                     <div className={styles.founderNote}>
                         <div className={styles.founderImage}>
-                            <img src={`${BASE_URL}ceo.png`} alt="Mohamed Al Abeed, CEO & Co-Founder" loading="lazy" decoding="async" />
+                            <img src={`${BASE_URL}ceo.webp`} alt="Mohamed Al Abeed, CEO & Co-Founder" loading="lazy" decoding="async" />
                         </div>
                         <div className={styles.founderContent}>
                             <blockquote>

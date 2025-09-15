@@ -9,12 +9,12 @@ const teamMembers = [
     //     role: "Founder & Managing Partner"
     // },
     {
-        imgSrc: "ceo.png",
+        imgSrc: "ceo.webp",
         name: "Mohamed Al Abeed",
         role: "CEO & Co-Founder"
     },
     {
-        imgSrc: "hbd.png",
+        imgSrc: "hbd.webp",
         name: "Ligin Li",
         role: "Head of Business Development"
     }
