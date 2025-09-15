@@ -87,7 +87,7 @@ const Hero = () => {
 
             {/* The content, which sits above the background and the ::before overlay */}
             <div className={`${styles.slideContent} ${styles.container}`}>
-              <h1>{slide.title}</h1>
+              <h2>{slide.title}</h2>
               <p>{slide.text}</p>
               <a href="#contact" className={`${styles.btn} ${styles.btnHero}`}>
                 Schedule a Free Consultation
