@@ -2,6 +2,7 @@ import React from 'react';
 import { Parallax } from 'react-scroll-parallax';
 import styles from '../styles/LandingPage.module.css';
 import FadeInSection from './FadeInSection';
+import aboutContent from '../content/about.json';
 
 const About = () => {
   return (
@@ -11,10 +12,11 @@ const About = () => {
           {/* Text slides in from the left */}
           <FadeInSection animationType="fadeInRight">
             <div className={styles.aboutText}>
-              <h1 className={styles.h1}>A Partnership for UAE Business Success</h1> 
-              <h2 className={styles.h2Left}>Built on Trust & Expertise</h2>
-              <p>At <strong>LaunchCORE</strong>, we are more than just accountants; we are your dedicated partners. We blend deep industry knowledge with a proactive approach to provide clear, actionable advice, allowing you to focus on what you do best: growing your business.</p>
-              <a href="#expertise" className={styles.btn}>Explore Our Expertise</a>
+              <h1 className={styles.h1}>{aboutContent.title}</h1>
+              <h2 className={styles.h2Left}>{aboutContent.subtitle}</h2>
+              {/* Use dangerouslySetInnerHTML for content with HTML tags like <strong> */}
+              <p dangerouslySetInnerHTML={{ __html: aboutContent.paragraph }}></p>
+              <a href={aboutContent.buttonLink} className={styles.btn}>{aboutContent.buttonText}</a>
             </div>
           </FadeInSection>
           {/* Image slides in from the right */}

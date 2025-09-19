@@ -1,21 +1,7 @@
 import React from 'react';
 import styles from '../styles/LandingPage.module.css';
 import FadeInSection from './FadeInSection'; // Import the animation component
-
-const testimonialsData = [
-    {
-        quote: "LaunchCORE transformed our approach to tax compliance. Their proactive advice is invaluable.",
-        author: "— Fatima Al-Mansoori, CEO of a Tech Startup"
-    },
-    {
-        quote: "The most professional and knowledgeable team we've ever worked with. Highly recommended.",
-        author: "— John Smith, Managing Director of an F&B Group"
-    },
-    {
-        quote: "Navigating business setup was daunting, but LaunchCORE made it seamless and straightforward.",
-        author: "— Aisha Khan, Founder of a Creative Agency"
-    }
-];
+import testimonialsData from '../content/testimonials.json'; // <-- IMPORT THE JSON
 
 const Testimonials = () => {
     return (
