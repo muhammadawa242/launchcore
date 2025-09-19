@@ -12,6 +12,7 @@ media_folder: "public/uploads" # Where to upload the media
 public_folder: "/uploads" # The src attribute for the media
 
 collections:
+  # This is a file collection with ONE file. This structure is correct.
   - name: "pages"
     label: "Page Content"
     files:
@@ -24,16 +25,30 @@ collections:
           - { label: "Paragraph", name: "paragraph", widget: "markdown" }
           - { label: "Button Text", name: "buttonText", widget: "string" }
           - { label: "Button Link", name: "buttonLink", widget: "string" }
+      # You can add more single pages here, like the Contact page info
+      # - name: "contact"
+      #   label: "Contact Info"
+      #   file: "src/content/contact.json"
+      #   fields:
+      #     - ... fields for contact info ...
 
+  # THIS IS THE CORRECTED COLLECTION FOR TESTIMONIALS
+  # It is also a "file collection" because it edits one file.
   - name: "testimonials"
     label: "Testimonials"
-    file: "src/content/testimonials.json"
-    fields:
-      - name: items
-        label: Testimonials
-        label_singular: Testimonial
-        widget: list
-        identifier_field: author # <-- ADD THIS LINE
+    files: # We define it as a file collection
+      - name: "testimonials"
+        label: "All Testimonials"
+        file: "src/content/testimonials.json" # The single file to edit
+        # The fields start here. There is only ONE top-level field,
+        # which is the list itself.
         fields:
-          - { label: "Quote", name: "quote", widget: "text" }
-          - { label: "Author", name: "author", widget: "string" }
+          - name: "testimonials" # This key must match the name of the list in your JSON
+            label: "Testimonials"
+            label_singular: "Testimonial"
+            widget: "list"
+            # Now, define the fields for EACH item WITHIN the list
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Author", name: "author", widget: "string" }
+
