@@ -5,6 +5,8 @@ backend:
   name: github
   repo: muhammadawa242/launchcore
   branch: main # Or master, whichever is your main branch
+  base_url: https://clever-dodol-91029d.netlify.app
+
 
 # This tells the CMS where to store images
 media_folder: "public/uploads" # Where to upload the media
