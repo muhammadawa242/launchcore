@@ -5,7 +5,6 @@ backend:
   name: github
   repo: muhammadawa242/launchcore
   branch: main # Or master, whichever is your main branch
-  auth_endpoint: auth
 
 # This tells the CMS where to store images
 media_folder: "public/uploads" # Where to upload the media
