@@ -11,34 +11,29 @@ backend:
 media_folder: "public/uploads" # Where to upload the media
 public_folder: "/uploads" # The src attribute for the media
 
-# These are the "collections" of content your client can edit
 collections:
-  # Collection for the single "About" section
   - name: "pages"
     label: "Page Content"
     files:
       - name: "about"
         label: "About Section"
-        file: "src/content/about.json" # Path to the data file
+        file: "src/content/about.json"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Subtitle", name: "subtitle", widget: "string" }
-          - { label: "Paragraph", name: "paragraph", widget: "markdown" } # Markdown supports <strong>
+          - { label: "Paragraph", name: "paragraph", widget: "markdown" }
           - { label: "Button Text", name: "buttonText", widget: "string" }
           - { label: "Button Link", name: "buttonLink", widget: "string" }
 
-  # Collection for the repeating "Testimonials"
   - name: "testimonials"
     label: "Testimonials"
-    folder: "src/content/testimonials" # This is a placeholder, see note below
-    create: true # Allow users to create new testimonials
-    # Since we have one JSON file with a list, we use a different structure
     file: "src/content/testimonials.json"
     fields:
       - name: items
         label: Testimonials
         label_singular: Testimonial
         widget: list
+        identifier_field: author # <-- ADD THIS LINE
         fields:
           - { label: "Quote", name: "quote", widget: "text" }
           - { label: "Author", name: "author", widget: "string" }
