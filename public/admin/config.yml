@@ -5,7 +5,8 @@ backend:
   name: github
   repo: muhammadawa242/launchcore
   branch: main # Or master, whichever is your main branch
-  base_url: https://clever-dodol-91029d.netlify.app
+  base_url: https://beautiful-daffodil-9cb4dd.netlify.app//
+
 
 
 # This tells the CMS where to store images
