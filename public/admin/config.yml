@@ -5,7 +5,7 @@ backend:
   name: github
   repo: muhammadawa242/launchcore
   branch: main # Or master, whichever is your main branch
-  base_url: https://beautiful-daffodil-9cb4dd.netlify.app//
+  base_url: https://beautiful-daffodil-9cb4dd.netlify.app/
 
 
 
